@@ -29,11 +29,14 @@ class Board
   end
 
   def setup_board
-    a = [0, 1, 6, 7]
+    black = [0, 1]
+    white = [6, 7]
     rows.each_with_index do |row, idx|
       row.each_index do |idx2|
-        if a.include?(idx)
-          rows[idx][idx2] = Piece.new
+        if black.include?(idx)
+          rows[idx][idx2] = Piece.new(self, [idx, idx2], :black)
+        elsif white.include?(idx)
+          rows[idx][idx2] = Piece.new(self, [idx, idx2], :white)
         else
           rows[idx][idx2] = NullPiece.instance
         end

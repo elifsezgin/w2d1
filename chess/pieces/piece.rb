@@ -1,44 +1,19 @@
 class Piece
-  attr_reader :value
+  attr_reader :board, :position, :color, :horizontal, :diagonal
 
-  def initialize
-    @value = "1"
+  def initialize(board, position, color)
+    @board = board
+    @position = position
+    @color = color
   end
 
   def moves
+    # PLACEHOLDER
     # implemented in subclasses
-  end
-
-  def color
+    # should return an array of places a Piece can move to
   end
 
   def to_s
     "P"
-  end
-
-end
-
-module SlidingPiece
-  def moves
-    select { |pos| is_valid?(pos)}
-    #returns an array of valid moves
-    # return the MOVES constant where MOVES.each is_valid?(pos)
-  end
-  private
-  def move_dirs()
-  end
-  def horizontal_dirs
-  end
-  def diagonal_dirs
-  end
-  def grow_unblocked_moves_dir(dx, dy)
-  end
-end
-
-module SteppingPiece
-  def moves
-  end
-  private
-  def move_diffs()
   end
 end
