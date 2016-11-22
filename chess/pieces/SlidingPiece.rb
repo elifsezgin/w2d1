@@ -8,7 +8,9 @@ module SlidingPiece
     end
   end
 
-  def move_dirs()
+  private
+
+  def move_dirs
     all_directions = []
     if horizontal && diagonal
       horizontal_dirs.each do |pos|
