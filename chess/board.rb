@@ -1,7 +1,7 @@
 require_relative "piece"
 require "singleton"
 require_relative "nullpiece"
-require "byebug"
+require_relative "display"
 
 class Board
   attr_reader :rows
@@ -14,7 +14,6 @@ class Board
   def move_piece(start_pos, end_pos)
     raise "exception1" if self[start_pos].class == NullPiece
     raise "exception2" if self[end_pos].class == Piece
-    #piece cannot move
     # might be end_position the same color
     # cannot slide on another piece
     self[end_pos], self[start_pos] = self[start_pos], NullPiece.instance
@@ -42,6 +41,11 @@ class Board
       end
     end
   end
+
+  def in_bounds(pos)
+    pos.all? { |i| i.between?(0, 7) }
+  end
+
 end
 
 # if __FILE__ == $PROGRAM_NAME
