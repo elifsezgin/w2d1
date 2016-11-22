@@ -1,6 +1,7 @@
 require "colorize"
 require_relative "board"
 require_relative "cursor"
+require_relative "pieces/require_pieces"
 require "byebug"
 
 class Display

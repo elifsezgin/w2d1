@@ -1,6 +1,5 @@
-require_relative "piece"
+require_relative "pieces/require_pieces"
 require "singleton"
-require_relative "nullpiece"
 require_relative "display"
 
 class Board

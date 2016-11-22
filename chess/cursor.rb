@@ -1,6 +1,6 @@
 require "io/console"
 require "colorize"
-require "byebug"
+require_relative "pieces/require_pieces"
 
 KEYMAP = {
   " " => :space,
