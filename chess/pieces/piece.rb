@@ -20,7 +20,9 @@ end
 
 module SlidingPiece
   def moves
+    select { |pos| is_valid?(pos)}
     #returns an array of valid moves
+    # return the MOVES constant where MOVES.each is_valid?(pos)
   end
   private
   def move_dirs()
