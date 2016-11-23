@@ -1,4 +1,5 @@
 require_relative "piece"
+require_relative "SlidingPiece"
 
 class Queen < Piece
 
@@ -11,7 +12,7 @@ class Queen < Piece
   end
 
   def symbol
-    "\u2655"
+    color == :white ? "\u2655" : "\u265B"
   end
 
   protected

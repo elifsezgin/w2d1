@@ -8,12 +8,12 @@ class Display
   attr_reader :cursor
 
   def initialize(board)
-    @cursor = Cursor.new([0,0], board)
+    @cursor = Cursor.new([0, 0], board)
     @board = board
   end
 
   def display_get_input
-    5.times do
+    while true
       render
       check_var = cursor.get_input
     end
@@ -22,8 +22,11 @@ class Display
   def render
     empty_string = ""
     @board.rows.each_with_index do |row, idx1|
+      # byebug
       row.each_with_index do |cell, idx2|
-        cell = cell.value
+        next if cell.class == NullPiece
+        cell = cell.symbol
+         p [idx1, idx2]
         if [idx1, idx2] == @cursor.cursor_pos
           cell = cell.colorize(:red)
           if @cursor.selected == true

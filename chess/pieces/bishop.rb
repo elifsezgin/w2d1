@@ -1,4 +1,5 @@
 require_relative "piece"
+require_relative "SlidingPiece"
 require "colorize"
 
 class Bishop < Piece
@@ -11,7 +12,7 @@ class Bishop < Piece
   end
 
   def symbol
-    "\u265D".colorize(color)
+    color == :white ? "\u2657" : "\u265D"
   end
 
   protected
@@ -25,25 +26,3 @@ class Bishop < Piece
   end
 
 end
-
-
-# w_king = "\u2654"
-# w_queen = "\u2655"
-# w_rook = "\u2656"
-# w_bishop = "\u2657"
-# w_knight = "\u2658"
-# w_pawn = "\u2659"
-# b_king = "\u265A"
-# b_queen = "\u265B"
-# b_rook = "\u265C"
-# b_bishop = "\u265D"
-# b_knight = "\u265E"
-# b_pawn = "\u265F"
-# white = [w_king, w_queen, w_rook, w_bishop, w_knight, w_pawn]
-# black = [b_king, b_queen, b_rook, b_bishop, b_knight, b_pawn]
-# white.each do |white|
-#   print white.force_encoding('utf-8')
-# end
-# black.each do |black|
-#   print black.force_encoding('utf-8')
-# end

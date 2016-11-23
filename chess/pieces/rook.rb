@@ -1,4 +1,5 @@
 require_relative "piece"
+require_relative "SlidingPiece"
 
 class Rook < Piece
 
@@ -8,6 +9,10 @@ class Rook < Piece
     super(board, position, color)
     @horizontal = true
     @diagonal = false
+  end
+
+  def symbol
+    color == :white ? "\u2656" : "\u265C"
   end
 
   def valid_moves
