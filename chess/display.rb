@@ -13,7 +13,7 @@ class Display
   end
 
   def display_get_input
-    while true
+    5.times do
       render
       check_var = cursor.get_input
     end

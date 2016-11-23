@@ -1,0 +1,6 @@
+Steps to troubleshoot:
+
+(1) in_check? --> Check only valid positions, not NullPiece instances
+  Stack trace for last error: "undefined method 'color' for nil:NilClass" in Pawn class, related to in_check iteration. Focus on "moves_helper" method.
+
+(2) checkmate? --> Figure out logic to determine no valid moves 

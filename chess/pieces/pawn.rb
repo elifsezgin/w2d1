@@ -12,7 +12,6 @@ class Pawn < Piece
   end
 
   def moves
-
     if color == :white
       directions = (position[0] == 6) ? [[-1, 0], [-2, 0]] : [[-1, 0]]
       diagonals = [[-1, -1], [-1, 1]]
@@ -40,6 +39,10 @@ class Pawn < Piece
     end
     diagonals.each do |pos|
       diag_pos = [pos[0] + position[0], pos[1] + position[1]]
+      next unless diag_pos.each do |pos|
+        pos[0].between?(0, 7) && pos[1].between?(0, 7)
+      end
+      next if board[diag_pos].class == NullPiece
       if board[diag_pos].color == opposite_color
         moves << diag_pos
       end

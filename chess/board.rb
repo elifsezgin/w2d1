@@ -68,6 +68,38 @@ class Board
     pos.all? { |i| i.between?(0, 7) }
   end
 
+  def in_check?(color)
+    moves = []
+    king_pos = nil
+
+    rows.each do |row|
+      row.each do |cell|
+        next if cell.class == NullPiece
+        if cell.class == King && cell.color == color
+          king_pos = cell.position
+        elsif cell.color != color
+          moves << cell.moves
+        end
+      end
+    end
+
+    moves.include?(king_pos)
+  end
+
+  def checkmate?(color)
+    if in_check?(color)
+      king_moves = []
+      rows.each do |row|
+        row.each do |cell|
+          if cell.class == King && cell.color == color
+            king_moves << cell.moves
+            return true if king_moves.empty?
+          end
+        end
+      end
+    end
+    false
+  end
 end
 
 # if __FILE__ == $PROGRAM_NAME
